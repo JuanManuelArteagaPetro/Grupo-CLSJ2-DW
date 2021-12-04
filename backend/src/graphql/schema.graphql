@@ -1,52 +1,50 @@
 type Query {
-    hola: String!
     #... consultas usuario
     Usuario: [Usuarios!]
-    allUsuario(last:Int):[Usuarios!]
+    OneUsuario(id: String!):[Usuarios!]
     #... consultas proyecto
     Proyecto: [Proyectos!]
-    allProyecto(last:Int):[Proyectos!]
-    
+    OneProyecto(id: String!):[Proyectos!]
 }
 
 type Mutation{
     #... Creación de usuario
     createUsuario(nombre:String!, apellido: String!, email: String!, clave: Int!, Rol: String!, Estado: String!, Id: Int!): Usuarios!
     #... Actualización de usuario
-    updateUsuario(id:ID!, nombre:String!): Usuarios!
+    updateUsuario(id:ID!, nombre:String, apellido:String, Rol:String, Estado:String): Usuarios!
     #... Eliminación de usuario
     deleteUsuario(id:ID!): Usuarios!
 
     #... Creación de proyecto
     createProyecto(Id_proyecto:String!, Proyecto:String!, Obj_Gen: String!, Obj_esp: String!, Presupuesto: Int!, Estado: String!, Fase: String!, id_lider: Int!): Proyectos!
-    #... Creación de proyecto
-    updateProyecto(id:ID!, Proyecto:String!): Proyectos!
-    #... Creación de proyecto
+    #... Actualización de proyecto
+    updateProyecto(id:ID!, Presupuesto:Int Estado:String, Fase:String, id_lider:Int): Proyectos!
+    #... Eliminación de proyecto
     deleteProyecto(id:ID!): Proyectos!
 }
 
 type Usuarios {
-    _id: ID!
+    _id:ID!
     nombre:String!
-    apellido: String!
-    email: String!
-    clave: Int!
+    apellido:String!
+    email:String!
+    clave:Int!
     Rol: String!
-    Estado: String!
-    Id: Int!
+    Estado:String!
+    Id:Int!
 }
 
 type Proyectos {
-    _id: ID!
+    _id:ID!
     Id_proyecto:String!
     Proyecto:String!
-    Obj_Gen: String!
-    Obj_esp: String
-    Presupuesto: Int
-    Estado: String
-    Fase: String
-    #...Avances: [{Reg_avance: String!, Observacion: String}]
-    id_lider: Int
+    Obj_Gen:String!
+    Obj_esp:String
+    Presupuesto:Int
+    Estado:String
+    Fase:String
+    id_lider:Int
+    #... Avances: [{String, String}]
     #...Estudiantes: [{Id_estudiante: Int!, Inscripcion: String}]
 }
 
