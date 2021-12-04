@@ -1,0 +1,60 @@
+type Query {
+    hola: String!
+    #... consultas usuario
+    Usuario: [Usuarios!]
+    allUsuario(last:Int):[Usuarios!]
+    #... consultas proyecto
+    Proyecto: [Proyectos!]
+    allProyecto(last:Int):[Proyectos!]
+    
+}
+
+type Mutation{
+    #... Creación de usuario
+    createUsuario(nombre:String!, apellido: String!, email: String!, clave: Int!, Rol: String!, Estado: String!, Id: Int!): Usuarios!
+    #... Actualización de usuario
+    updateUsuario(id:ID!, nombre:String!): Usuarios!
+    #... Eliminación de usuario
+    deleteUsuario(id:ID!): Usuarios!
+
+    #... Creación de proyecto
+    createProyecto(Id_proyecto:String!, Proyecto:String!, Obj_Gen: String!, Obj_esp: String!, Presupuesto: Int!, Estado: String!, Fase: String!, id_lider: Int!): Proyectos!
+    #... Creación de proyecto
+    updateProyecto(id:ID!, Proyecto:String!): Proyectos!
+    #... Creación de proyecto
+    deleteProyecto(id:ID!): Proyectos!
+}
+
+type Usuarios {
+    _id: ID!
+    nombre:String!
+    apellido: String!
+    email: String!
+    clave: Int!
+    Rol: String!
+    Estado: String!
+    Id: Int!
+}
+
+type Proyectos {
+    _id: ID!
+    Id_proyecto:String!
+    Proyecto:String!
+    Obj_Gen: String!
+    Obj_esp: String
+    Presupuesto: Int
+    Estado: String
+    Fase: String
+    #...Avances: [{Reg_avance: String!, Observacion: String}]
+    id_lider: Int
+    #...Estudiantes: [{Id_estudiante: Int!, Inscripcion: String}]
+}
+
+type Subscription{
+    newUsuario:Usuarios!
+    updateUsuario:Usuarios!
+    deleteUsuario:Usuarios!
+    newProyecto:Proyectos!
+    updateProyecto:Proyectos!
+    deleteProyecto:Proyectos!
+}
