@@ -11,16 +11,16 @@ type Mutation{
     #... Creación de usuario
     createUsuario(nombre:String!, apellido: String!, email: String!, clave: Int!, Rol: String!, Estado: String!, Id: Int!): Usuarios!
     #... Actualización de usuario
-    updateUsuario(id:ID!, nombre:String, apellido:String, Rol:String, Estado:String): Usuarios!
+    updateUsuario(id:String!, nombre:String, apellido:String, Rol:String, Estado:String): Usuarios!
     #... Eliminación de usuario
-    deleteUsuario(id:ID!): Usuarios!
+    deleteUsuario(id:String!): Usuarios!
 
     #... Creación de proyecto
     createProyecto(Id_proyecto:String!, Proyecto:String!, Obj_Gen: String!, Obj_esp: String!, Presupuesto: Int!, Estado: String!, Fase: String!, id_lider: Int!): Proyectos!
     #... Actualización de proyecto
-    updateProyecto(id:ID!, Presupuesto:Int Estado:String, Fase:String, id_lider:Int): Proyectos!
+    updateProyecto(id:String!, Presupuesto:Int Estado:String, Fase:String, id_lider:Int): Proyectos!
     #... Eliminación de proyecto
-    deleteProyecto(id:ID!): Proyectos!
+    deleteProyecto(id:String!): Proyectos!
 }
 
 type Usuarios {

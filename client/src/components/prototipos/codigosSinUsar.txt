@@ -1,0 +1,8 @@
+<li className="nav-item">
+<Link className="nav-link" to="/delete-user">
+  Usuario uno
+</Link>
+</li>
+
+<Route exact path="/find-user" component={FormUser} />
+<Route exact path="/delete-user" component={UserDelete} />
